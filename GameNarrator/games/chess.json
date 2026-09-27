@@ -1,0 +1,57 @@
+{
+  "game": "Chess (Chess.com)",
+  "capture": {
+    "mode": "window",
+    "match": {
+      "title_contains": "chess.com"
+    },
+    "fallback_monitor": 1,
+    "_comment": "Crop is a centred box, 60% of the browser width, full height. Isolates the board from the sidebar.",
+    "crop": {
+      "width": 0.6,
+      "height": 1.0
+    }
+  },
+  "aggregation": "max",
+  "window_s": 1.92,
+  "_events_comment": "Classes taken from a live audio_test.py probe, not guessed. No silence veto: under max aggregation Silence reaches ~1.0 in almost every window, which vetoed every real event.",
+  "events": {
+    "ALERT": {
+      "any": [
+        "Ping",
+        "Ding",
+        "Sound effect"
+      ],
+      "threshold": 0.2,
+      "description": "The site played a notification sound"
+    },
+    "MOVE": {
+      "any": [
+        "Door",
+        "Plop",
+        "Knock",
+        "Tap",
+        "Tick"
+      ],
+      "threshold": 0.2,
+      "description": "A piece was placed on the board"
+    }
+  },
+  "priority": [
+    "ALERT",
+    "MOVE"
+  ],
+  "narration": {
+    "min_gap_s": 8,
+    "max_gap_s": 45
+  },
+  "visual": {
+    "min_conf": 0.4,
+    "margin": 0.08
+  },
+  "_scene_prompts_comment": "Piece-count prompts were dropped. CLIP cannot judge how many pieces are on a board, and returned a confident wrong answer instead of an uncertain one.",
+  "scene_prompts": [
+    "a green and cream chess board during an ongoing game",
+    "a white popup window with text and buttons covering most of a chess board"
+  ]
+}

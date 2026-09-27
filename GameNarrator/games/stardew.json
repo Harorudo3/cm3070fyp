@@ -1,0 +1,75 @@
+{
+  "game": "Stardew Valley",
+  "capture": {
+    "mode": "window",
+    "match": {
+      "process": "Stardew Valley.exe"
+    },
+    "fallback_monitor": 1,
+    "_comment": "Needs Borderless or Windowed mode, same as CS2."
+  },
+  "aggregation": "max",
+  "window_s": 1.92,
+  "_events_comment": "Classes taken from a live audio_test.py probe. Background music sits high in most windows but does not mask these, since YAMNet scores each class independently.",
+  "events": {
+    "ANIMAL": {
+      "any": [
+        "Bleat",
+        "Sheep",
+        "Goat",
+        "Quack",
+        "Duck",
+        "Fowl",
+        "Goose",
+        "Livestock, farm animals, working animals",
+        "Animal"
+      ],
+      "threshold": 0.3,
+      "description": "A farm animal made a sound"
+    },
+    "PICKUP": {
+      "any": [
+        "Plop",
+        "Glass",
+        "Chink, clink",
+        "Ding",
+        "Ping"
+      ],
+      "threshold": 0.15,
+      "description": "An item was picked up or used"
+    },
+    "CHOP": {
+      "any": [
+        "Whack, thwack",
+        "Thump, thud",
+        "Smash, crash",
+        "Wood block"
+      ],
+      "threshold": 0.15,
+      "description": "A tool struck something (chopping, mining, digging)"
+    }
+  },
+  "priority": [
+    "ANIMAL",
+    "PICKUP",
+    "CHOP"
+  ],
+  "narration": {
+    "min_gap_s": 10,
+    "max_gap_s": 60
+  },
+  "visual": {
+    "min_conf": 0.55,
+    "margin": 0.1
+  },
+  "_scene_prompts_comment": "Prompts avoid describing anything permanently on screen. An earlier 'grid of item slots' prompt matched the hotbar and the tiled soil, so it fired constantly.",
+  "scene_prompts": [
+    "an outdoor farm with green grass, trees and growing crops",
+    "a dark underground cave with grey rock walls",
+    "a town street with wooden buildings and villagers",
+    "the inside of a room with wooden walls, floor and furniture",
+    "a large brown wooden menu panel covering the whole screen",
+    "a large text box at the bottom of the screen with a character portrait",
+    "a wide area of blue water with a character fishing at the shore"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "game": "Counter-Strike 2",
+  "capture": {
+    "mode": "window",
+    "match": {
+      "process": "cs2.exe"
+    },
+    "fallback_monitor": 1,
+    "_comment": "Needs Borderless or Windowed mode. Exclusive fullscreen cannot be window-captured."
+  },
+  "events": {
+    "GUNFIRE": {
+      "any": [
+        "Gunshot, gunfire",
+        "Machine gun",
+        "Fusillade"
+      ],
+      "threshold": 0.45,
+      "description": "Weapons firing"
+    },
+    "EXPLOSION": {
+      "any": [
+        "Breaking",
+        "Shatter",
+        "Burst, pop"
+      ],
+      "threshold": 0.35,
+      "require_also": [
+        "Explosion"
+      ],
+      "also_threshold": 0.4,
+      "description": "Grenade or bomb detonation"
+    },
+    "RELOAD": {
+      "any": [
+        "Camera",
+        "Single-lens reflex camera"
+      ],
+      "threshold": 0.5,
+      "description": "Weapon reload"
+    },
+    "MOVEMENT": {
+      "any": [
+        "Walk, footsteps",
+        "Run",
+        "Clip-clop",
+        "Horse"
+      ],
+      "threshold": 0.4,
+      "description": "Player movement"
+    }
+  },
+  "priority": [
+    "EXPLOSION",
+    "GUNFIRE",
+    "RELOAD",
+    "MOVEMENT"
+  ],
+  "narration": {
+    "min_gap_s": 5,
+    "max_gap_s": 25
+  },
+  "scene_prompts": [
+    "a first-person view down the barrel of a rifle in a game",
+    "a dark menu grid of weapon icons with prices displayed",
+    "a full-screen table of player names and score numbers",
+    "a greyed-out camera view spectating another player after death",
+    "a top-down radar or overhead map view",
+    "a player crouched next to a bomb device on the ground"
+  ]
+}

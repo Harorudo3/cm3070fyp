@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+*.pyd
+tfhub_cache/
+clip_view.png
+
+# Working session logs are regenerated on every run and are not kept.
+session_log*.jsonl
+# The two sessions the evaluation was scored against are kept, so the
+# results in the report can be reproduced.
+!session_log_cs2_evaluated.jsonl
+!session_log_stardew_evaluated.jsonl
